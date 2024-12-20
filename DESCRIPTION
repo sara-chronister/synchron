@@ -1,12 +1,22 @@
 Package: synchron
-Title: What the Package Does (One Line, Title Case)
+Title: Functions and tools for syndromic surveillance practice
 Version: 0.0.0.9000
 Authors@R: 
     person("Sara", "Chronister", , "sara.chronister@gmail.com", role = c("aut", "cre"))
-Description: Functions for use of NSSP-ESSENCE APIs and API outputs.
+Description: Functions and tools for use of syndromic surveillance data from 
+    NSSP-ESSENCE APIs and API outputs as part of  public health practice. 
+    Workflows are system-agnostic where possible, but may need local adaptation 
+    to function as intended. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://github.com/sara-chronister/synchron
 BugReports: https://github.com/sara-chronister/synchron/issues
+Imports: 
+    dplyr,
+    magrittr,
+    purrr,
+    rlang,
+    stringr,
+    tidyselect
