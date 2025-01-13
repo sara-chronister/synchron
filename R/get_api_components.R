@@ -1,6 +1,6 @@
 #' Get a table of the NSSP-ESSENCE API Components
 #'
-#' @param url NSSP-ESSENCE API URL
+#' @param url NSSP-ESSENCE API URL. Intended to be used in other `synchron` functions, but can be useful on its own as well
 #'
 #' @return a data frame with two columns, `component` (i.e., query or API component) and `value` (i.e, query criteria)
 #' @import tidyr

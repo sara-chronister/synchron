@@ -7,7 +7,7 @@
 get_api_components(url)
 }
 \arguments{
-\item{url}{NSSP-ESSENCE API URL}
+\item{url}{NSSP-ESSENCE API URL. Intended to be used in other \code{synchron} functions, but can be useful on its own as well}
 }
 \value{
 a data frame with two columns, \code{component} (i.e., query or API component) and \code{value} (i.e, query criteria)
