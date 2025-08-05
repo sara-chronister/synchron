@@ -18,7 +18,20 @@
 get_api_components <- function(url) {
 
   url_parts <- data.frame(component = url) %>%
+    separate_longer_delim(component, "?")
+
+  url_type_part <- url_parts %>%
+    filter(str_detect(component,"http")) %>%
+    mutate(value = ifelse(str_detect(component,"csv"), "/csv", "json")) %>%
+    mutate(component = str_remove(component,"/csv"))
+
+  url_query_parts <- url_parts %>%
+    filter(str_detect(component,"http", negate = TRUE)) %>%
     separate_longer_delim(component, "&") %>%
     separate_wider_delim(component, "=", names = c("component", "value"))
+
+  url_parts <- bind_rows(url_type_part, url_query_parts)
+
+  return(url_parts)
 
 }
