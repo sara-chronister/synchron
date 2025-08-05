@@ -1,1 +1,1 @@
-utils::globalVariables(c("AnyTerm", "field", "sumTerm", "term", "myProfile", "component", "start", "end"))
+utils::globalVariables(c("AnyTerm", "field", "sumTerm", "term", "myProfile", "component", "value", "group", "start", "end"))
