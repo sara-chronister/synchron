@@ -19,7 +19,7 @@
 #' try(def_icd_codes <- detect_elements(df = data_details,
 #' terms = c("J09", "J10", "J11"), text_field = "DDParsed",
 #' group_name = "Any_Flu_ICD_Codes"))
-detect_elements <- function(df, terms, text_field, group_name = NULL, id_field = "C_BioSense_ID") {
+detect_elements <- function(df, text_field, terms, id_field = "C_BioSense_ID", group_name = NULL) {
 
   terms <- stringr::str_to_lower(terms)
   terms_colnames <- stringr::str_replace_all(terms," ",".")
@@ -41,6 +41,8 @@ detect_elements <- function(df, terms, text_field, group_name = NULL, id_field =
   terms_detected <- purrr::reduce(terms_detected_list,dplyr::full_join) %>%
     dplyr::select(tidyselect::all_of(id_field),tidyselect::everything(),-text_field) %>%
     dplyr::distinct()
+
+  group_name <- group_name
 
   if (is.null(group_name)) {
     df_to_return <- dplyr::full_join(df, terms_detected, by = id_field)
