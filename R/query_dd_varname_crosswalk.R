@@ -5,8 +5,8 @@
 #' @format ## `query_dd_varname_crosswalk`
 #' A data frame with 36 rows and 2 columns:
 #' \describe{
-#'  \item{QueryAPI}{data.frame of the ESSENCE tab}
-#'  \item{DataDetailsAPI}{List with length 3:}
+#'  \item{QueryAPI}{Name used when querying the field}
+#'  \item{DataDetailsAPI}{Name used in data details output}
 #' }
 #' @source <https://www.cdc.gov/nssp/biosense/docs/NSSP-Data-Dictionary-508.xlsx>
 "query_dd_varname_crosswalk"
