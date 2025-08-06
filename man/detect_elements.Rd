@@ -6,22 +6,22 @@
 \usage{
 detect_elements(
   df,
-  terms,
   text_field,
-  group_name = NULL,
-  id_field = "C_BioSense_ID"
+  terms,
+  id_field = "C_BioSense_ID",
+  group_name = NULL
 )
 }
 \arguments{
 \item{df}{Data frame (typically data details).}
 
-\item{terms}{Vector of terms and/or codes to search for.}
-
 \item{text_field}{Existing variable in \code{df} to search for \code{terms} in.}
 
-\item{group_name}{Optional string to create and name a new variable that will indicate whether each record in the data set matched any \code{term} found in \code{text_field}. If left as \code{NULL} the variable will not be created.}
+\item{terms}{Vector of terms and/or codes to search for.}
 
 \item{id_field}{Individual row/record identifier. "C_BioSense_ID" unless otherwise specified. If no row identifier exists, create one using \code{mutate(id_field = row_number)} and set \code{id_field = id_field} in the function call.}
+
+\item{group_name}{Optional string to create and name a new variable that will indicate whether each record in the data set matched any \code{term} found in \code{text_field}. If left as \code{NULL} the variable will not be created.}
 }
 \value{
 a data frame
