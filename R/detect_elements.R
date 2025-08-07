@@ -47,7 +47,11 @@ detect_elements <- function(df, text_field, terms, id_field = "C_BioSense_ID", g
   if (is.null(group_name)) {
     df_to_return <- dplyr::full_join(df, terms_detected, by = id_field)
   } else {
-    group_name_added <- terms_detected %>%
+    group_name_added <- terms_detected
+    group_name_added$sumTerm <- terms_detected %>%
+      select(tidyselect::contains("in")) %>%
+      rowSums()
+    group_name_added <- group_name_added %>%
       dplyr::mutate(sumTerm = dplyr::select(.data, tidyselect::contains("in")) %>% rowSums()) %>%
       dplyr::mutate(AnyTerm = ifelse(sumTerm>0,1,0))%>%
       dplyr::select(tidyselect::all_of(id_field), AnyTerm)
